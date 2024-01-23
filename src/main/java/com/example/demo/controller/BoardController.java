@@ -30,7 +30,7 @@ public class BoardController {
 	public String registerPost(BoardDTO dto, RedirectAttributes redirectAttributes) {
 		int no = service.register(dto);
 		redirectAttributes.addFlashAttribute("msg",no);
-		return "redirect:/board/list";
+		return "redirect:/board/main";
 		
 	}
 	

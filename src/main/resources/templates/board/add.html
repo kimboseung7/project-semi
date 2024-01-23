@@ -1,52 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <th:block th:replace="~{/layout/index :: setContent(~{this::content} )}">
-    <th:block th:fragment="content">
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-            <meta name="description" content="" />
-            <meta name="author" content="" />
-            <title>Add Board</title>
-            <!-- Bootstrap CSS -->
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy4W8+EQ+SkFcCAFa4o0e0sHQC5tkFfR5N"
-                crossorigin="anonymous">
-        </head>
-        <body>
-            <div class="container mt-4 d-flex justify-content-center align-items-center">
-                <div>
-                    <h1>Add Board</h1>
+	<!-- 템플릿 조각 전달 -->
+	<th:block th:fragment="content">
+		<!-- 템플릿 만들기 -->
+		<form th:action="@{/board/add}" method="post">
+			<div class="container mt-4 d-flex justify-content-center align-items-center">
+				<div class="text-center">
+					<h1>Add Board</h1>
 
-                    <form th:action="@{/board/add}" method="post">
-                        <div class="form-group">
-                            <label for="title">상품명</label>
-                            <input type="text" class="form-control" id="title" name="title" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="price">가격</label>
-                            <input type="text" class="form-control" id="price" name="price" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="photo">사진 업로드</label>
-                            <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*" required>
-                        </div>
-                        <button type="file" class="btn btn-primary">등록</button>
-                    </form>
-                </div>
-            </div>
+					<div class="form-group">
+						<label for="title">상품명</label> <input type="text"
+							class="form-control" id="title" name="title" required>
+					</div>
+					<div class="form-group">
+						<label for="price">가격</label> <input type="text"
+							class="form-control" id="price" name="price" required>
+					</div>
+					<div class="form-group">
+						<label for="photo">사진 업로드</label> <input type="file"
+							class="form-control-file" id="photo" name="photo"
+							accept="image/*" required>
+					</div>
+					<button type="file" class="btn btn-primary">등록</button>
 
-            <!-- Bootstrap JS and dependencies -->
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-                integrity="sha384-4s+V1t4XlVk+Lr6GEPt9QfgTwFGo4Gd6DTq6lu2R83DMEXEwJ6BZr5tAow8hDdaQ"
-                crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy4W8+EQ+SkFcCAFa4o0e0sHQC5tkFfR5N"
-                crossorigin="anonymous"></script>
-        </body>
-        </html>
-    </th:block>
+				</div>
+			</div>
+		</form>
+	</th:block>
 </th:block>
