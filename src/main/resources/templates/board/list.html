@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+   <th:block th:replace="~{/layout/index :: setContent(~{this::content} )}">
+      <!-- 템플릿 조각 전달 -->
+      <th:block th:fragment="content">
+         <!-- 템플릿 만들기 -->
+         <div th:each="dto : ${list}" class="col mb-5">
+            <div class="card h-100">
+               <!-- Product image-->
+               <img class="card-img-top" th:src="${dto.photo}" alt="..." />
+               <!-- Product details-->
+               <div class="card-body p-4">
+                  <div class="text-center">
+                     <!-- Product name-->
+                     <h5 class="fw-bolder" th:text="${dto.title}"></h5>
+                     <!-- Product price-->
+                    <p th:text="${'$' + dto.price}"></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </th:block>
+   </th:block>
+</html>
+

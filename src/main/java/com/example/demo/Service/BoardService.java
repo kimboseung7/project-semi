@@ -29,6 +29,7 @@ public interface BoardService {
         Board entity = Board.builder()
                 .no(dto.getNo())
                 .title(dto.getTitle())
+                .price(dto.getPrice())
                 .build();
         return entity;
     }
@@ -38,6 +39,7 @@ public interface BoardService {
         BoardDTO dto = BoardDTO.builder()
                 .no(entity.getNo())
                 .title(entity.getTitle())
+                .price(entity.getPrice())
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .build();

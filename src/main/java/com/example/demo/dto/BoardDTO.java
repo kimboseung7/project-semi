@@ -21,4 +21,5 @@ public class BoardDTO {
 	int price;
 	LocalDateTime regDate;
 	LocalDateTime modDate;
+	String photo;
 }
