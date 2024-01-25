@@ -1,34 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<th:block th:replace="~{/layout/index :: setContent(~{this::content} )}">
-	<th:block th:fragment="content">
-		<div
-			class="container mt-4 d-flex justify-content-center align-items-center "
-			style="border: 1px solid black; margin-bottom: 20px;">
-			<div class="text-center">
-				<h1>Add Board</h1>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-				<div class="form-group">
-					<label for="title">상품명</label> <input type="text"
-						class="form-control" id="title" name="title"
-						placeholder="상품명을 입력하세요" required>
-				</div>
-				<div class="form-group">
-					<label for="price">가격</label> <input type="text"
-						class="form-control" id="price" name="price"
-						placeholder="가격을 입력하세요" required>
-				</div>
-				<div class="form-group" style="margin-bottom: 15px;">
-					<label for="photo">사진 링크</label> <input type="url"
-						class="form-control" id="photo" name="photo"
-						placeholder="사진을 등록하세요" required>
+    <title>Modify Board</title>
 
-				</div>
-				<divmargin-bottom: 20px;>
-					<button type="submit" class="btn btn-primary">등록</button>
-					</div>
-				</div>
-			</div>
-	</th:block>
-</th:block>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+    <th:block th:replace="~{/layout/index :: setContent(~{this::content} )}">
+        <th:block th:fragment="content">
+            <!-- 수정 폼 -->
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <h1 class="text-center mb-4">Modify Board</h1>
+                        <form>
+                            <div class="form-group">
+                                <label for="no">번호</label>
+                                <input type="number" class="form-control" id="no" name="no" placeholder="수정할 게시물 번호를 입력하세요" 
+                                th:value="${dto.no}" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title">상품명</label>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="상품명을 입력하세요"th:value="${dto.title}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="price">가격</label>
+                                <input type="text" class="form-control" id="price" name="price" placeholder="가격을 입력하세요" th:value="${dto.price}"required>
+                            </div>
+                            
+                             <div class="form-group">
+                                <label for="content">내용</label>
+                                <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요" th:value="${dto.content}"required>
+                            </div>
+
+                            <button type="button" class="btn btn-primary modifyBtn">수정</button>
+                            <button type="button" class="btn btn-danger removeBtn ml-2">삭제</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+    </th:block>
+   
+<script th:inline="javascript">
+	//$() 함수는 태그이름이나 CSS선택자로 HTML 태그를 가져온다
+	var form = $("form"); //form 태그 객체 가져오기
+
+	$(".modifyBtn").click(function() {
+		if (!confirm("수정하시겠습니까?")) {
+			return;
+		}
+
+		form.attr("action", "/board/modify").attr("method", "post").submit();
+	});
+	//목록버튼 이벤트 처리
+	$(".listBtn").click(function() {
+		form.attr("action", "/board/list").attr("method", "get").submit();
+	});
+
+	//삭제 
+	$(".removeBtn").click(function() {
+		form.attr("action", "/board/remove").attr("method", "post").submit();
+	});
+</script>
+</html>

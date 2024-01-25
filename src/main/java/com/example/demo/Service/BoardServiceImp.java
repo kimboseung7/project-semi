@@ -69,6 +69,8 @@ public class BoardServiceImp implements BoardService{
 
             // 기존 엔티티에서 제목
             entity.setTitle(dto.getTitle());
+            entity.setPrice(dto.getPrice());
+            entity.setContent(dto.getContent());
      
             // 다시 저장
             repository.save(entity);

@@ -30,6 +30,7 @@ public interface BoardService {
                 .no(dto.getNo())
                 .title(dto.getTitle())
                 .price(dto.getPrice())
+                .content(dto.getContent())
                 .build();
         return entity;
     }
@@ -40,6 +41,7 @@ public interface BoardService {
                 .no(entity.getNo())
                 .title(entity.getTitle())
                 .price(entity.getPrice())
+                .content(entity.getContent())
                 .regDate(entity.getRegDate())
                 .modDate(entity.getModDate())
                 .build();

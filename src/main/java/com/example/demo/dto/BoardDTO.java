@@ -22,4 +22,5 @@ public class BoardDTO {
 	LocalDateTime regDate;
 	LocalDateTime modDate;
 	String photo;
+	String content;
 }

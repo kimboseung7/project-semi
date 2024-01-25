@@ -53,15 +53,10 @@
 						<i class="bi-plus"></i> Add Product
 					</button>
 				</form>
-				<form class="modify">
-					<button class="btn btn-outline-dark me-2" type="button"
-						onClick="location.href='/board/modify'">
-						<i class="bi-plus"></i> Modify
-					</button>
-					<form class="cart">
-						<button class="btn btn-outline-dark" type="submit">
-							<i class="bi-cart-fill me-1"></i> Cart <span
-								class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+					<form class="back">
+						<button class="btn btn-outline-dark me-2" type="button"
+						onClick="location.href='/board/list'">
+						<i class="bi-plus"></i> Back
 						</button>
 					</form>
 			</div>
@@ -79,9 +74,9 @@
 		</div>
 	</header>
 	<!-- Section-->
-	<section class="py-5" th:fragment="setContent">
+	<section class="py-5" th:fragment="setContent" >
 
-		<div class="container px-4 px-lg-5 mt-5">
+		<div class="container px-3 px-lg-5 mt-5">
 			<div
 				class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 				<th:block th:replace = "${content}"></th:block>

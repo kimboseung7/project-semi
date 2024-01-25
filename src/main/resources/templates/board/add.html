@@ -2,37 +2,42 @@
 <html lang="en">
 
 <th:block th:replace="~{/layout/index :: setContent(~{this::content} )}">
-	<!-- 템플릿 조각 전달 -->
-	<th:block th:fragment="content">
-		<!-- 템플릿 만들기 -->
-		<form th:action="@{/board/add}" method="post">
-			<div class="container mt-4 d-flex justify-content-center align-items-center "  
-			style="border: 1px solid black; margin-bottom: 20px;">
-				<div class="text-center">
-					<h1>Add Board</h1>
+    <!-- 템플릿 조각 전달 -->
+    <th:block th:fragment="content">
+        <!-- 템플릿 만들기 -->
+        <form th:action="@{/board/add}" method="post">
+            <div class="container mt-4 d-flex justify-content-center align-items-center "  
+            style="border: 1px solid black; margin-bottom: 20px;">
+                <div class="text-center">
+                    <h1>Add Board</h1>
 
-					<div class="form-group">
-						<label for="title">상품명</label> <input type="text"
-							class="form-control" id="title" name="title" 
-							placeholder="상품명을 입력하세요" required>
-					</div>
-					<div class="form-group">
-						<label for="price">가격</label> 
-						<input type="text" class="form-control" id="price" name="price" 
-						placeholder="가격을 입력하세요" required>
-					</div>
-					<div class="form-group" style="margin-bottom: 15px;">
-						<label for="photo">사진 링크</label> <input type="url"
-							class="form-control" id="photo" name="photo"
-							 placeholder="사진을 등록하세요" required>
-							
-					</div>
-					<div margin-bottom: 20px;>
-					<button type="submit" class="btn btn-primary">등록</button>
-					</div>
-				</div>
-			</div>
-		</form>
-		</html>
-	</th:block>
+                    <div class="form-group">
+                        <label for="title">상품명</label> <input type="text"
+                            class="form-control" id="title" name="title" 
+                            placeholder="상품명을 입력하세요" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">가격</label> 
+                        <input type="text" class="form-control" id="price" name="price" 
+                        placeholder="가격을 입력하세요" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="photo">사진 링크</label> <input type="url"
+                            class="form-control" id="photo" name="photo"
+                            placeholder="사진을 등록하세요" required>
+                    </div>
+                    <!-- content 입력 필드 추가 -->
+                    <div class="form-group">
+                        <label for="content">상품 설명</label> 
+                        <textarea class="form-control" id="content" name="content" 
+                        placeholder="상품 설명을 입력하세요" required></textarea>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <button type="submit" class="btn btn-primary">등록</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </th:block>
 </th:block>
+</html>

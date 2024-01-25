@@ -31,4 +31,7 @@ public class Board extends BaseEntity{
 	@Column(nullable = false)
 	private int price;
 	
+	@Column(length = 100, nullable = false)
+	private String content;
+	
 }
